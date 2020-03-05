@@ -16,12 +16,13 @@ public class Lab_2 {
 
         double[] sample_1 = signalGen.getSignalMass(64, 0.09956785, 0);
 
-        List<double[]> signalBlocks = signalGen.getSignalBlocks(sample_1, 4);
+        List<double[]> signalBlocks = signalGen.getSignalBlocks(sample_1, 16);
 
         double[] average = features.calcAverage(signalBlocks);
 
         double[] dispersion = features.calcDispersion(signalBlocks, average);
 
+        double[] inversion = features.calcInversion(signalBlocks);
     }
 
 }

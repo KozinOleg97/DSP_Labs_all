@@ -56,4 +56,40 @@ public class Features {
         return resDisp;
     }
 
+
+    public double[] calcInversion(List<double[]> signalBlocks) {
+
+        double[] resCrits = new double[signalBlocks.size()];
+
+        int blockIndex = 0;
+
+        for (double[] curBlock : signalBlocks) {
+            int sumCrit = 0;
+
+            for (int i = 0; i < curBlock.length - 1; i++) {
+
+                int crit = 0;
+
+                double curNumb = curBlock[i];
+
+                for (int j = i + 1; j < curBlock.length - 1; j++) {
+
+                    if (curNumb > curBlock[j]) {
+                        crit++;
+                    }
+
+                }
+
+                //calc crit for 1 block
+                sumCrit += crit;
+
+            }
+
+            resCrits[blockIndex] = sumCrit;
+            blockIndex++;
+        }
+
+        return resCrits;
+    }
+
 }
